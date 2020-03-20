@@ -13,6 +13,7 @@ use eZ\Publish\Core\Persistence;
 use eZ\Publish\Core\Persistence\TransformationProcessor\DefinitionBased;
 use eZ\Publish\Core\Persistence\Legacy\Tests\TestCase;
 use eZ\Publish\Core\Persistence\Legacy;
+use eZ\Publish\Core\Repository\Tests\RepositoryContainerBuilder;
 use eZ\Publish\SPI\Persistence\Content;
 use eZ\Publish\SPI\Persistence\Content\Field;
 use eZ\Publish\SPI\Persistence\Content\Type;
@@ -559,6 +560,10 @@ abstract class BaseIntegrationTest extends TestCase
 
     protected function getContainer()
     {
+        $containerBuilder = new RepositoryContainerBuilder(new ContainerBuilder());
+        $containerBuilder->buildTestContainer();
+        dump($containerProvider);
+        exit;
         $installDir = dirname(__DIR__, 5);
 
         $containerBuilder = new ContainerBuilder();
